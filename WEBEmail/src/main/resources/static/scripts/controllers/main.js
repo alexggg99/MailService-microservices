@@ -7,7 +7,7 @@ angular.module('app')
         $scope.test = function(){
             $http({
                 method: 'GET',
-                url: 'http://localhost:8282'
+                url: 'http://localhost:8282/races'
             }).then(function(response) {
                 $scope.races = response.data;
             }, function(response) {

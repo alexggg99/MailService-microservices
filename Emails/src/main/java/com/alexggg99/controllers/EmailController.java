@@ -24,7 +24,7 @@ public class EmailController {
         emails.add(email);
     }
 
-    @RequestMapping("/")
+    @RequestMapping("/email")
     public ResponseEntity<List<Email>> getAll(){
         return new ResponseEntity<List<Email>>(emails, HttpStatus.OK);
     }
