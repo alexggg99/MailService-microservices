@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -17,6 +18,7 @@ import java.util.List;
 public class OcrRacesApplication implements CommandLineRunner {
 
     private static List<Race> races = new ArrayList<>();
+    private Date date;
 
     public static void main(String[] args) {
         SpringApplication.run(OcrRacesApplication.class, args);
@@ -24,59 +26,14 @@ public class OcrRacesApplication implements CommandLineRunner {
 
     @Override
     public void run(String... arg0) throws Exception {
-        races.add(new Race("Spartan Beast", "123", "MA", "Boston"));
-        races.add(new Race("Tough Mudder RI", "456", "RI", "Providence"));
+        races.add(new Race("Spartan Beast", "123", "MA", "Boston__1"));
+        races.add(new Race("Tough Mudder RI", "456", "RI", "Providence___1"));
     }
 
     @RequestMapping("/")
     public List<Race> getRaces() {
         return races;
+
     }
 }
 
-class Race {
-    private String name;
-    private String id;
-    private String state;
-    private String city;
-
-    public Race(String name, String id, String state, String city) {
-        super();
-        this.name = name;
-        this.id = id;
-        this.state = state;
-        this.city = city;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-}
